@@ -57,9 +57,6 @@ The `digitalData` object for a page load event:
 
 ```javascript
 digitalData.push({
-  "interaction": {
-    // ...properties
-  },
   "pageInfo": {
     "pageName": "DataLayer Test Home",
     // ...additional page properties
