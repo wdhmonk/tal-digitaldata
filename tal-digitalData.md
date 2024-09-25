@@ -93,7 +93,7 @@ digitalData.push({
 This will allow for developers to define the object types before pushing to production and encountering any type issues.
 
 ```javascript
- interface DigitalDataEntry {
+ {
     interaction: {
       eventType: string;
       clickText: string;
