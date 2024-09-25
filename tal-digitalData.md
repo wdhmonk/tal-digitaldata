@@ -12,7 +12,7 @@ window.digitalData = window.digitalData || [];
 
 This script ensures that the `digitalData` array is available for pushing data objects whenever required.
 
-## The `digitalData` Object Structure
+## The `digitalData` Object Structure for event `interaction`
 
 Below is the structure of the `digitalData` object that needs to be deployed. This example is for an interaction event:
 
@@ -88,6 +88,79 @@ digitalData.push({
 
 ---
 
+## Developer Object Values Types
+
+```javascript
+ interface DigitalDataEntry {
+    interaction: {
+      eventType: string;
+      clickText: string;
+      clickURL: string;
+      search: {
+        autoSuggestSearchTerm: string;
+        searchTerm: string;
+        searchFilters: string;
+        searchResults: string;
+      };
+      cardDescription: string;
+      accordionAction: string;
+      interactionSection: string;
+      userRole: string;
+    };
+    pageInfo: {
+      pageName: string;
+      pageTitle: string;
+      pageType: string;
+      pageUrl: string;
+      talid: string;
+      mcode: string;
+      referrer: string;
+      language: string;
+      primaryCategory: string;
+      subCategory1: string;
+      subCategory2: string;
+      subCategory3: string;
+      site: {
+        brand: string;
+        environment: string;
+        domain: string;
+      };
+    };
+    form: {
+      formName: string;
+      formStep: string;
+      formSubStep: string;
+      quoteId: string;
+      referenceNumber: string;
+      formAction: string;
+      tpdCover: string;
+      traumaCover: string;
+      smoker: string;
+      state: string;
+      postcode: string;
+      occupation: string;
+      age: string;
+      gender: string;
+      amount: string;
+      income: string;
+      lifeCover: string;
+      product: string;
+      vertical: string;
+    };
+    user: {
+      email: string;
+      phoneNumber: string;
+      membershipType: string;
+      membershipId: string;
+      loginstatus: string;
+      loginId: string;
+      role: string;
+    };
+    event: string;
+  }
+```
+---
+
 ## Examples for Specific Elements
 
 Below are examples of how to implement the `digitalData` object for various elements, along with sample payloads and images.
@@ -99,31 +172,74 @@ When a user interacts with the navigation bar, the `digitalData` object should c
 **Example Payload:**
 
 ```javascript
-digitalData.push({
-  "interaction": {
-    "eventType": "navbar",
-    "clickText": "Home",
-    "clickURL": "/home",
-    "interactionSection": "header",
-    "userRole": "guest"
-  },
-  "pageInfo": {
-    "pageName": "Home Page",
-    "pageTitle": "Welcome to Our Website",
-    "pageType": "landing",
-    "pageUrl": "https://www.example.com/home",
-    "language": "en-AU",
-    "primaryCategory": "Home",
-    "site": {
-      "brand": "ExampleBrand",
-      "environment": "production",
-      "domain": "example.com"
-    }
-  },
-  "event": "interaction"
-});
+{
+    "interaction": {
+        "eventType": "navigation",
+        "clickText": "Insurance Products",
+        "clickURL": "https://datalayer-test.com",
+        "search": {
+            "autoSuggestSearchTerm": "",
+            "searchTerm": "",
+            "searchFilters": "",
+            "searchResults": ""
+        },
+        "cardDescription": "",
+        "accordionAction": "",
+        "interactionSection": "header",
+        "userRole": ""
+    },
+    "pageInfo": {
+        "pageName": "Test Website",
+        "pageTitle": "Test Website",
+        "pageType": "Insurance Info",
+        "pageUrl": "https://datalayer-test.com",
+        "talid": "12345",
+        "mcode": "insurancePage",
+        "referrer": "",
+        "language": "en-AU",
+        "primaryCategory": "Insurance",
+        "subCategory1": "",
+        "subCategory2": "",
+        "subCategory3": "",
+        "site": {
+            "brand": "Insurance Corp",
+            "environment": "production",
+            "domain": "datalayer-test.com"
+        }
+    },
+    "form": {
+        "formName": "",
+        "formStep": "",
+        "formSubStep": "",
+        "quoteId": "",
+        "referenceNumber": "",
+        "formAction": "",
+        "tpdCover": "",
+        "traumaCover": "",
+        "smoker": "",
+        "state": "",
+        "postcode": "",
+        "occupation": "",
+        "age": "",
+        "gender": "",
+        "amount": "",
+        "income": "",
+        "lifeCover": "",
+        "product": "",
+        "vertical": ""
+    },
+    "user": {
+        "email": "",
+        "phoneNumber": "",
+        "membershipType": "",
+        "membershipId": "",
+        "loginstatus": "",
+        "loginId": "",
+        "role": ""
+    },
+    "event": "interaction"
+}
 ```
-
 **Image Illustration:**
 
 ![Navigation Bar Example](./pics/NavBars.png)
@@ -137,33 +253,75 @@ For interactions with cards, such as clicking on a product card, details should 
 **Example Payload:**
 
 ```javascript
-digitalData.push({
-  "interaction": {
-    "eventType": "cardClick",
-    "cardDescription": "Product XYZ Details",
-    "clickText": "Learn More",
-    "clickURL": "/products/xyz",
-    "interactionSection": "mainContent",
-    "userRole": "member"
-  },
-  "pageInfo": {
-    "pageName": "Products Page",
-    "pageTitle": "Our Products",
-    "pageType": "productListing",
-    "pageUrl": "https://www.example.com/products",
-    "language": "en-AU",
-    "primaryCategory": "Products",
-    "subCategory1": "Insurance",
-    "site": {
-      "brand": "ExampleBrand",
-      "environment": "production",
-      "domain": "example.com"
-    }
-  },
-  "event": "interaction"
-});
-```
+{
+    "interaction": {
+        "eventType": "card",
+        "clickText": "Pet Insurance",
+        "clickURL": "https://datalayer-test.com",
+        "search": {
+            "autoSuggestSearchTerm": "",
+            "searchTerm": "",
+            "searchFilters": "",
+            "searchResults": ""
+        },
+        "cardDescription": "Protect what matters most with our comprehensive pet insurance",
+        "accordionAction": "",
+        "interactionSection": "content",
+        "userRole": ""
+    },
+    "pageInfo": {
+        "pageName": "Test Website",
+        "pageTitle": "Test Website",
+        "pageType": "Insurance Info",
+        "pageUrl": "https://datalayer-test.com",
+        "talid": "12345",
+        "mcode": "insurancePage",
+        "referrer": "",
+        "language": "en-AU",
+        "primaryCategory": "Insurance",
+        "subCategory1": "",
+        "subCategory2": "",
+        "subCategory3": "",
+        "site": {
+            "brand": "Insurance Corp",
+            "environment": "production",
+            "domain": "datalayer-test.com"
+        }
+    },
+    "form": {
+        "formName": "",
+        "formStep": "",
+        "formSubStep": "",
+        "quoteId": "",
+        "referenceNumber": "",
+        "formAction": "",
+        "tpdCover": "",
+        "traumaCover": "",
+        "smoker": "",
+        "state": "",
+        "postcode": "",
+        "occupation": "",
+        "age": "",
+        "gender": "",
+        "amount": "",
+        "income": "",
+        "lifeCover": "",
+        "product": "",
+        "vertical": ""
+    },
+    "user": {
+        "email": "",
+        "phoneNumber": "",
+        "membershipType": "",
+        "membershipId": "",
+        "loginstatus": "",
+        "loginId": "",
+        "role": ""
+    },
+    "event": "interaction"
+}
 
+```
 **Image Illustration:**
 
 ![Card Interaction Example](./pics/Cards.png)
@@ -177,31 +335,75 @@ Capturing interactions with call-to-action buttons is essential for tracking use
 **Example Payload:**
 
 ```javascript
-digitalData.push({
-  "interaction": {
-    "eventType": "buttonClick",
-    "clickText": "Sign Up Now",
-    "clickURL": "/signup",
-    "interactionSection": "footer",
-    "userRole": "guest"
-  },
-  "pageInfo": {
-    "pageName": "Landing Page",
-    "pageTitle": "Join Us Today",
-    "pageType": "landing",
-    "pageUrl": "https://www.example.com",
-    "language": "en-AU",
-    "primaryCategory": "Signup",
-    "site": {
-      "brand": "ExampleBrand",
-      "environment": "production",
-      "domain": "example.com"
-    }
-  },
-  "event": "interaction"
-});
-```
+{
+    "interaction": {
+        "eventType": "button",
+        "clickText": "Get a Quote Now",
+        "clickURL": "https://datalayer-test.com",
+        "search": {
+            "autoSuggestSearchTerm": "",
+            "searchTerm": "",
+            "searchFilters": "",
+            "searchResults": ""
+        },
+        "cardDescription": "",
+        "accordionAction": "",
+        "interactionSection": "content",
+        "userRole": ""
+    },
+    "pageInfo": {
+        "pageName": "Test Website",
+        "pageTitle": "Test Website",
+        "pageType": "Insurance Info",
+        "pageUrl": "https://datalayer-test.com",
+        "talid": "12345",
+        "mcode": "insurancePage",
+        "referrer": "",
+        "language": "en-AU",
+        "primaryCategory": "Insurance",
+        "subCategory1": "",
+        "subCategory2": "",
+        "subCategory3": "",
+        "site": {
+            "brand": "Insurance Corp",
+            "environment": "production",
+            "domain": "datalayer-test.com"
+        }
+    },
+    "form": {
+        "formName": "",
+        "formStep": "",
+        "formSubStep": "",
+        "quoteId": "",
+        "referenceNumber": "",
+        "formAction": "",
+        "tpdCover": "",
+        "traumaCover": "",
+        "smoker": "",
+        "state": "",
+        "postcode": "",
+        "occupation": "",
+        "age": "",
+        "gender": "",
+        "amount": "",
+        "income": "",
+        "lifeCover": "",
+        "product": "",
+        "vertical": ""
+    },
+    "user": {
+        "email": "",
+        "phoneNumber": "",
+        "membershipType": "",
+        "membershipId": "",
+        "loginstatus": "",
+        "loginId": "",
+        "role": ""
+    },
+    "event": "interaction"
+}
 
+```
 **Image Illustration:**
 
 ![Button (CTA) Interaction Example](./pics/button.png)
@@ -215,32 +417,75 @@ When users interact with accordion elements, such as expanding or collapsing sec
 **Example Payload:**
 
 ```javascript
-digitalData.push({
-  "interaction": {
-    "eventType": "accordion",
-    "accordionAction": "Open",
-    "clickText": "Frequently Asked Questions",
-    "interactionSection": "mainContent",
-    "userRole": "guest"
-  },
-  "pageInfo": {
-    "pageName": "Help Page",
-    "pageTitle": "How Can We Help?",
-    "pageType": "support",
-    "pageUrl": "https://www.example.com/help",
-    "language": "en-AU",
-    "primaryCategory": "Support",
-    "subCategory1": "FAQ",
-    "site": {
-      "brand": "ExampleBrand",
-      "environment": "production",
-      "domain": "example.com"
-    }
-  },
-  "event": "interaction"
-});
-```
+{
+    "interaction": {
+        "eventType": "accordion",
+        "clickText": "FAQ: How do I file a claim?",
+        "clickURL": "https://datalayer-test.com",
+        "search": {
+            "autoSuggestSearchTerm": "",
+            "searchTerm": "",
+            "searchFilters": "",
+            "searchResults": ""
+        },
+        "cardDescription": "",
+        "accordionAction": "Open",
+        "interactionSection": "content",
+        "userRole": ""
+    },
+    "pageInfo": {
+        "pageName": "Test Website",
+        "pageTitle": "Test Website",
+        "pageType": "Insurance Info",
+        "pageUrl": "https://datalayer-test.com",
+        "talid": "12345",
+        "mcode": "insurancePage",
+        "referrer": "",
+        "language": "en-AU",
+        "primaryCategory": "Insurance",
+        "subCategory1": "",
+        "subCategory2": "",
+        "subCategory3": "",
+        "site": {
+            "brand": "Insurance Corp",
+            "environment": "production",
+            "domain": "datalayer-test.aiprojectlabs.com"
+        }
+    },
+    "form": {
+        "formName": "",
+        "formStep": "",
+        "formSubStep": "",
+        "quoteId": "",
+        "referenceNumber": "",
+        "formAction": "",
+        "tpdCover": "",
+        "traumaCover": "",
+        "smoker": "",
+        "state": "",
+        "postcode": "",
+        "occupation": "",
+        "age": "",
+        "gender": "",
+        "amount": "",
+        "income": "",
+        "lifeCover": "",
+        "product": "",
+        "vertical": ""
+    },
+    "user": {
+        "email": "",
+        "phoneNumber": "",
+        "membershipType": "",
+        "membershipId": "",
+        "loginstatus": "",
+        "loginId": "",
+        "role": ""
+    },
+    "event": "interaction"
+}
 
+```
 **Image Illustration:**
 
 ![Accordion Interaction Example](./pics/Accordion.png)
@@ -254,49 +499,241 @@ For interactions with the search bar, including the terms entered and the result
 **Example Payload:**
 
 ```javascript
-digitalData.push({
-  "interaction": {
-    "eventType": "search",
-    "search": {
-      "searchTerm": "life insurance",
-      "autoSuggestSearchTerm": "",
-      "searchFilters": "",
-      "searchResults": "15"
+{
+    "interaction": {
+        "eventType": "search",
+        "clickText": "",
+        "clickURL": "https://datalayer-tesr.com",
+        "search": {
+            "autoSuggestSearchTerm": "",
+            "searchTerm": "insurance",
+            "searchFilters": "",
+            "searchResults": ""
+        },
+        "cardDescription": "",
+        "accordionAction": "",
+        "interactionSection": "header",
+        "userRole": ""
     },
-    "clickText": "Search",
-    "interactionSection": "header",
-    "userRole": "guest"
-  },
-  "pageInfo": {
-    "pageName": "Search Results",
-    "pageTitle": "Search - life insurance",
-    "pageType": "searchResults",
-    "pageUrl": "https://www.example.com/search?q=life+insurance",
-    "language": "en-AU",
-    "primaryCategory": "Search",
-    "site": {
-      "brand": "ExampleBrand",
-      "environment": "production",
-      "domain": "example.com"
-    }
-  },
-  "event": "interaction"
-});
+    "pageInfo": {
+        "pageName": "Test Website",
+        "pageTitle": "Test Website",
+        "pageType": "Insurance Info",
+        "pageUrl": "https://datalayer-test.com",
+        "talid": "12345",
+        "mcode": "insurancePage",
+        "referrer": "",
+        "language": "en-AU",
+        "primaryCategory": "Insurance",
+        "subCategory1": "",
+        "subCategory2": "",
+        "subCategory3": "",
+        "site": {
+            "brand": "Insurance Corp",
+            "environment": "production",
+            "domain": "datalayer-test.com"
+        }
+    },
+    "form": {
+        "formName": "",
+        "formStep": "",
+        "formSubStep": "",
+        "quoteId": "",
+        "referenceNumber": "",
+        "formAction": "",
+        "tpdCover": "",
+        "traumaCover": "",
+        "smoker": "",
+        "state": "",
+        "postcode": "",
+        "occupation": "",
+        "age": "",
+        "gender": "",
+        "amount": "",
+        "income": "",
+        "lifeCover": "",
+        "product": "",
+        "vertical": ""
+    },
+    "user": {
+        "email": "",
+        "phoneNumber": "",
+        "membershipType": "",
+        "membershipId": "",
+        "loginstatus": "",
+        "loginId": "",
+        "role": ""
+    },
+    "event": "interaction"
+}
 ```
-
 **Image Illustration:**
 
 ![Search Bar Interaction Example](./pics/search.png)
 
 ---
 
+### 5. Form Submission
+
+For interactions with the forms, this will populate the object form with its proeprty values, depending on the step. This will mean there will be a new datalayer push for every new step in the form the user is in
+
+**Example Payload:**
+
+```javascript
+{
+    "interaction": {
+        "eventType": "button",
+        "clickText": "",
+        "clickURL": "https://datalayer-tesr.com",
+        "search": {
+            "autoSuggestSearchTerm": "",
+            "searchTerm": "insurance",
+            "searchFilters": "",
+            "searchResults": ""
+        },
+        "cardDescription": "",
+        "accordionAction": "",
+        "interactionSection": "header",
+        "userRole": ""
+    },
+    "pageInfo": {
+        "pageName": "Test Website",
+        "pageTitle": "Test Website",
+        "pageType": "Insurance Info",
+        "pageUrl": "https://datalayer-test.com",
+        "talid": "12345",
+        "mcode": "insurancePage",
+        "referrer": "",
+        "language": "en-AU",
+        "primaryCategory": "Insurance",
+        "subCategory1": "",
+        "subCategory2": "",
+        "subCategory3": "",
+        "site": {
+            "brand": "Insurance Corp",
+            "environment": "production",
+            "domain": "datalayer-test.com"
+        }
+    },
+    "form": {
+        "formName": "life-insurance-form",
+        "formStep": "form start",
+        "formSubStep": "",
+        "quoteId": "123456",
+        "referenceNumber": "78910",
+        "formAction": "",
+        "tpdCover": "",
+        "traumaCover": "",
+        "smoker": "yes",
+        "state": "nsw",
+        "postcode": "2200",
+        "occupation": "senior data analyst",
+        "age": "18",
+        "gender": "male",
+        "amount": "1000000",
+        "income": "100",
+        "lifeCover": "20",
+        "product": "life-insurance",
+        "vertical": ""
+    },
+    "user": {
+        "email": "",
+        "phoneNumber": "",
+        "membershipType": "",
+        "membershipId": "",
+        "loginstatus": "",
+        "loginId": "",
+        "role": ""
+    },
+    "event": "interaction"
+}
+```
+**Image Illustration:**
+
+![Search Bar Interaction Example](./pics/search.png)
+
+---
+
+## The `digitalData` Object Structure for event `page load`
+
+
+Below is the structure of the `digitalData` object that needs to be deployed. This example is for a page load for an authenticated user:
+
+
+```javascript
+digitalData.push({
+  "interaction": {
+    "eventType": "",        // e.g., "navbar", "buttonClick", "formSubmit"
+    "clickText": "",              // Text displayed on the clickable element
+    "clickURL": "",               // URL the element points to
+    "search": {
+      "autoSuggestSearchTerm": "",
+      "searchTerm": "",
+      "searchFilters": "",
+      "searchResults": ""
+    },                            // Terms entered in search fields
+    "cardDescription": "",        // Description of the card if applicable
+    "accordionAction": "",        // e.g., "Open" or "Close"
+    "interactionSection": "",     // e.g., "header", "footer"
+    "userRole": ""                // Specify if user is admin, guest, etc.
+  },
+"pageInfo": {
+  "pageName": "DataLayer Test Home",
+  "pageTitle": "DataLayer Test - Home",
+  "pageType": "homepage",
+  "pageUrl": "https://datalayer-test.com",
+  "talid": "TL-0012345",
+  "mcode": "MC-67890",
+  "referrer": "",
+  "language": "en-AU",
+  "primaryCategory": "Data Analytics",
+  "subCategory1": "Tracking",
+  "subCategory2": "Data Layer Implementation",
+  "subCategory3": "",
+  "site": {
+    "brand": "DataLayer Test",
+    "environment": "production",
+    "domain": "datalayer-test.com"
+  }
+},
+  "form": {
+    "formName": "",
+    "formStep": "",
+    "formSubStep": "",
+    "quoteId": "",
+    "referenceNumber": "",
+    "formAction": "",             // For if you go forward or backwards
+    "tpdCover": "",
+    "traumaCover": "",
+    "smoker": "",
+    "state": "",
+    "postcode": "",
+    "occupation": "",
+    "age": "",
+    "gender": "",
+    "amount": "",                 // The cover amount
+    "income": "",                 // Income in form
+    "lifeCover": "",              // To be defined
+    "product": "",                // To be defined
+    "vertical": ""                // To be defined
+  },
+  "user": {
+    "email": "e9f6a7c0-3b2f-4d5e-9a1b-7c8d9e0f1234",
+    "phoneNumber": "041111111",
+    "membershipType": "broker",
+    "membershipId": "123456",
+    "loginstatus": "yes",
+    "loginId": "645345",
+    "role": ""
+  },
+  "event": "pageLoad"
+});
+```
+
+
 ## Notes
 
 - **Consistency**: Ensure all data pushed to the `digitalData` object is accurate and consistently formatted.
 - **Placeholder Values**: Replace placeholder values (e.g., empty strings, comments) with actual data relevant to the user's interaction and the page context.
-- **`referrer` Field**: The `referrer` field in `pageInfo` is optional and subject to confirmation on whether it's needed.
-- **Undefined Fields**: Fields such as `lifeCover`, `product`, and `vertical` in the `form` object require clarification and should be defined according to business requirements.
 
----
 
-By following this guide, you can effectively deploy the `digitalData` object on your website, enabling robust data collection for user interactions and enhancing analytics capabilities.
