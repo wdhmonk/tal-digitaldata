@@ -126,7 +126,7 @@ digitalData.push({
 
 **Image Illustration:**
 
-![Navigation Bar Example](path/to/navbar-image.png)
+![Navigation Bar Example](./pics/NavBars.png)
 
 ---
 
@@ -166,7 +166,7 @@ digitalData.push({
 
 **Image Illustration:**
 
-![Card Interaction Example](path/to/card-image.png)
+![Card Interaction Example](./pics/Cards.png)
 
 ---
 
@@ -204,7 +204,7 @@ digitalData.push({
 
 **Image Illustration:**
 
-![Button (CTA) Interaction Example](path/to/button-image.png)
+![Button (CTA) Interaction Example](./pics/button.png)
 
 ---
 
@@ -243,7 +243,7 @@ digitalData.push({
 
 **Image Illustration:**
 
-![Accordion Interaction Example](path/to/accordion-image.png)
+![Accordion Interaction Example](./pics/Accordion.png)
 
 ---
 
@@ -286,7 +286,7 @@ digitalData.push({
 
 **Image Illustration:**
 
-![Search Bar Interaction Example](path/to/searchbar-image.png)
+![Search Bar Interaction Example](./pics/search.png)
 
 ---
 
