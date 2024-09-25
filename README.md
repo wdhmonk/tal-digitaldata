@@ -68,7 +68,7 @@ digitalData.push({
     "email": "example@example.com",
     // ...additional user properties
   },
-  "event": "pageLoad"
+  "event": "pageView"
 });
 ```
 

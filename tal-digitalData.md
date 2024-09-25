@@ -656,7 +656,7 @@ For interactions with the forms, this will populate the object form with its pro
 
 ---
 
-## The `digitalData` Object Structure for event `page load`
+## The `digitalData` Object Structure for event `page view`
 
 
 Below is the structure of the `digitalData` object that needs to be deployed. This example is for a page load for an authenticated user:
@@ -713,7 +713,7 @@ digitalData.push({
     "loginId": "645345",
     "role": ""
   },
-  "event": "pageLoad"
+  "event": "pageView"
 });
 ```
 
