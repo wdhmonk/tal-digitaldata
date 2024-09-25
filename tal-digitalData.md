@@ -664,21 +664,6 @@ Below is the structure of the `digitalData` object that needs to be deployed. Th
 
 ```javascript
 digitalData.push({
-  "interaction": {
-    "eventType": "",        // e.g., "navbar", "buttonClick", "formSubmit"
-    "clickText": "",              // Text displayed on the clickable element
-    "clickURL": "",               // URL the element points to
-    "search": {
-      "autoSuggestSearchTerm": "",
-      "searchTerm": "",
-      "searchFilters": "",
-      "searchResults": ""
-    },                            // Terms entered in search fields
-    "cardDescription": "",        // Description of the card if applicable
-    "accordionAction": "",        // e.g., "Open" or "Close"
-    "interactionSection": "",     // e.g., "header", "footer"
-    "userRole": ""                // Specify if user is admin, guest, etc.
-  },
 "pageInfo": {
   "pageName": "DataLayer Test Home",
   "pageTitle": "DataLayer Test - Home",
