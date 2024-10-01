@@ -19,33 +19,33 @@ Below is the structure of the `digitalData` object that needs to be deployed. Th
 ```javascript
 digitalData.push({
   "interaction": {
-    "eventType": "button",        // e.g., "navbar", "buttonClick", "formSubmit"
+    "clickType": "button",        // e.g., "navbar", "buttonClick", "formSubmit"(Brian - should we change "eventType" to "clickType" to keep it consisten with "clickText" "clickURL"?) (changed it to clickType)
     "clickText": "",              // Text displayed on the clickable element
     "clickURL": "",               // URL the element points to
     "search": {
       "autoSuggestSearchTerm": "",
-      "searchTerm": "",
-      "searchFilters": "",
-      "searchResults": ""
-    },                            // Terms entered in search fields
-    "cardDescription": "",        // Description of the card if applicable
+      "searchTerm": "",           // Terms entered in search fields
+      "searchFilters": "",        //Brian - what would be an example value for this?
+      "searchResults": ""         //Brian - what would be an example value for this?
+    },                      
+    "cardDescription": "", // Description of the card if applicable (Brian - we might not need this as we can use clickSection suggested above to know where the user is clicking on)(This is for card clicks which tells you which card user clicked on)
     "accordionAction": "",        // e.g., "Open" or "Close"
-    "interactionSection": "",     // e.g., "header", "footer"
-    "userRole": ""                // Specify if user is admin, guest, etc.
+    "clickSection": "",     // e.g., "header", "footer" //Brian added this in as this was used for EBQ to identify which section of the website the user clicked on.(Changed intersectionSection to clickSection)
+    "userRole": ""                // Specify if user is admin, guest, etc.(Brian - we already have role in the user section below, should we remove this?) (Will remove this in final version)
   },
   "pageInfo": {
     "pageName": "",
-    "pageTitle": "",
+    "pageTitle": "", //Brian - what is different between pageName and pageTitle? Captures the same thing, will remove in the final version.
     "pageType": "",
     "pageUrl": "",
-    "talid": "",
+    "talid": "",                  //Brian - what would be an example of "talid", would membershipTypeID be enough? This already exists in the dataLayer we can remove it if not being used. 
     "mcode": "",
-    "referrer": "",               // To be confirmed if this is needed
+    "referrer": "",               // To be confirmed if this is needed (Will remove in the final version)
     "language": "",
-    "primaryCategory": "",
-    "subCategory1": "",
-    "subCategory2": "",
-    "subCategory3": "",
+    "primaryCategory": "", On the main tal website, it tracks what section of the header you are in. Example: claims if you under one of the claims page. (can be removed if this is not being used)
+    "subCategory1": "", // On the main tal website, it tracks what section of the sub header you are in you. Example: claims paid if you under one of the claims paid page under claims page. 
+    "subCategory2": "", // Exists in dataLayer. Couldnt find an example of this.
+    "subCategory3": "", // Not captured in Analytics but exists in datalayer. Couldnt find an example of this.
     "site": {
       "brand": "",
       "environment": "",
@@ -57,10 +57,10 @@ digitalData.push({
     "formStep": "",
     "formSubStep": "",
     "quoteId": "",
-    "referenceNumber": "",
-    "formAction": "",             // For if you go forward or backwards
-    "tpdCover": "",
-    "traumaCover": "",
+    "referenceNumber": "",        //Brian - what is different between referenceNumber vs quoteID? Both these parameters exists in dataLayer but not in the analytics. Relying on your understanding if this is required or not.
+    "formAction": "", // For if you go forward or backwards (Brian - if they user click Next and Back button we can trigger clickText, clickType etc as part of button click so should we remove this?)That doesnt give us if the went forward in that specific clickType. This gives the flow of the form. Upto you if we you want to keep it or remove it.
+    "tpdCover": "",//Brian - for all the atrributes below where we capture user input, how do we track these cause in the current tracking we trigger formStep as soon as user land on step 2 for example, so for those input fields when are we triggering them?
+    "traumaCover": "", // These attributes will capture once user finishes the step and click on next. Not on page load but on next step. 
     "smoker": "",
     "state": "",
     "postcode": "",
@@ -69,18 +69,18 @@ digitalData.push({
     "gender": "",
     "amount": "",                 // The cover amount
     "income": "",                 // Income in form
-    "lifeCover": "",              // To be defined
-    "product": "",                // To be defined
+    "lifeCover": "",              // life cover amount
+    "product": "",                // Product the user selected. Example after finished the form what insurance you go with
     "vertical": ""                // To be defined
   },
   "user": {
-    "email": "",
+    "email": "",//Brian - we are planning to use membershipTypeID for all of our ID including hashed email so we can remove this field. What about select brands? We implemented it recently. Also email will be useful in marketing tags and CDP in future.
     "phoneNumber": "",
     "membershipType": "",
-    "membershipId": "",
-    "loginstatus": "",
-    "loginId": "",
-    "role": ""
+    "membershipTypeId": "",  //Brian - it should be 'membershipTypeID" to be consistent with the existing tracking. 
+    "loginstatus": "", //Brian - what is different from "loginID" or "memebershipTypeID"? can we remove this and combine this loginID with "membershipTypeID"? LoginId doesnt exist in analytics but only in datalayer. Can be removed.
+    "loginId": "",  //Brian - what is different from "loginID" or "memebershipTypeID"? can we remove this and combine this loginID with "membershipTypeID"? LoginId doesnt exist in analytics but only in datalayer. Can be removed.
+    "role": "" //Brian - should we combine "role" with "membershipType"? They seems to be the same? Yes can be removed. This exists in the dataLayer but not used in analytics. 
   },
   "event": "interaction"
 });
