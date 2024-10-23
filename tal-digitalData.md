@@ -95,7 +95,7 @@ This will allow for developers to define the object types before pushing to prod
 ```javascript
  {
     interaction: {
-      eventType: string;
+      clickType: string;
       clickText: string;
       clickURL: string;
       search: {
